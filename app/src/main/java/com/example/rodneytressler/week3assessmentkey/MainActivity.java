@@ -2,6 +2,7 @@ package com.example.rodneytressler.week3assessmentkey;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import butterknife.BindView;
@@ -12,6 +13,8 @@ public class MainActivity extends AppCompatActivity implements AccountFragment.A
     @BindView(R.id.welcome_text)
     protected TextView welcomeText;
     private AccountFragment accountFragment;
+    @BindView(R.id.world_textView)
+    protected TextView world;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements AccountFragment.A
 
         welcomeText.setText(getString(R.string.welcome_text, name, aClass));
         getSupportFragmentManager().beginTransaction().remove(accountFragment).commit();
+        world.setVisibility(View.VISIBLE);
 
     }
 }
